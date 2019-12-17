@@ -6,7 +6,6 @@ $("#button").on("click", function() {
 var cityName = $("input:text").val();
 document.getElementById("weather-input").innerHTML = cityName; 
 
-
 // var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=cleveland&appid=" + APIKey;
 
 var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=" + APIKey;
@@ -40,6 +39,7 @@ $.ajax({
     wxDiv.append(pFour);
     console.log(temp)
 
+    
 
   $("#weather").prepend(wxDiv)
 
@@ -94,13 +94,44 @@ $.ajax({
 // })
 // }
 
+// UV INDEX
+
+$("#button").on("click", function() {
+    
+    // var lat = 
+    // var lon = 
+
+    var cityName = $("input:text").val();
+    document.getElementById("weather-input").innerHTML = cityName; 
+    // Here we are building the URL we need to query the database
+    var queryURL = "https://api.openweathermap.org/data/2.5/uvi?lat=37.75&lon=-122.37" + "&appid=" + APIKey;
+    //   "q=Bujumbura,Burundi&units=imperial&appid=" + APIKey;
+    
+
+        $.ajax({
+        url: queryURL,
+        method: "GET"
+        })
+        // We store all of the retrieved data inside of an object called "response"
+        .then(function(response) {
+    
+            // Log the queryURL
+            console.log(queryURL);
+    
+            // Log the resulting object
+            console.log(response);
+        })})
+
+
+
+// FIVE DAY FORECAST
 
     $("#button").on("click", function() {
 
     var cityName = $("input:text").val();
     document.getElementById("weather-input").innerHTML = cityName; 
     // Here we are building the URL we need to query the database
-    var queryURL = "https://api.openweathermap.org/data/2.5/forecast?" + cityName + "&appid=" + APIKey;
+    var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&appid=" + APIKey;
     //   "q=Bujumbura,Burundi&units=imperial&appid=" + APIKey;
     
 
@@ -117,3 +148,5 @@ $.ajax({
           // Log the resulting object
           console.log(response);
         })})
+
+

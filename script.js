@@ -20,16 +20,17 @@ $.ajax({
 
     var wxDiv = $("<div>");
     var city = response.name;
+    // var date = response.dt
+    // var pOne = $("<p>").text("City: " + city);
     var pOne = $("<p>").text("City: " + city);
     var wind = response.wind.speed;
     var pTwo = $("<p>").text("Wind Speed: " + wind);
     var humid = response.main.humidity;
     var pThree = $("<p>").text("Humidity: " + humid);
     var temp = response.main.temp;
-    var pFour = $("<p>").text("Temperature: " + temp);
-
-    
-    
+    var tempF = (response.main.temp - 273.15) * 1.80 + 32;
+    var pFour = $("<p>").text("Temperature: " + tempF + " (F)");
+        
     wxDiv.append(pOne);
     console.log(city)
     wxDiv.append(pTwo);
@@ -47,53 +48,6 @@ $.ajax({
 })
 
 
-
-
-    // var wxDiv = $("<div class='weather'>");
-    
-    // var city = response.name;
-
-    // var pOne = $("<p>").text("City: " + city);
-
-    // wxDiv.append(pOne);
-
-    // console.log(city)
-
-    // var wind = response.wind.speed;
-
-    // var pTwo = $("<p>").text("Wind Speed: " + wind);
-
-    // wxDiv.append(pTwo);
-
-    // console.log(wind)
-
-    // var humid = response.main.humidity;
-
-    // var pThree = $("<p>").text("Humidity: " + humid);
-
-    // wxDiv.append(pThree);
-
-    // console.log(humid);
-
-    // var temp = response.main.temp;
-
-    // var pFour = $("<p>").text("Temperature: " + temp);
-
-    // wxDiv.append(pFour);
-
-    //     // var tempF = (response.main.temp - 273.15) * 1.80 + 32;
-    //     //  $(".tempF").text("Temperature (Kelvin) " + tempF);
-
-    // console.log(temp);
-
-    // $(".city").html("<h1>" + response.name + " Weather Details</h1>");
-    // $(".wind").text("Wind Speed: " + response.wind.speed);
-    // $(".humidity").text("Humidity: " + response.main.humidity);
-    // $(".temp").text("Temperature (F) " + response.main.temp);
-    
-// })
-// }
-
 // UV INDEX
 
 $("#button").on("click", function() {
@@ -103,22 +57,16 @@ $("#button").on("click", function() {
 
     var cityName = $("input:text").val();
     document.getElementById("weather-input").innerHTML = cityName; 
-    // Here we are building the URL we need to query the database
     var queryURL = "https://api.openweathermap.org/data/2.5/uvi?lat=37.75&lon=-122.37" + "&appid=" + APIKey;
-    //   "q=Bujumbura,Burundi&units=imperial&appid=" + APIKey;
     
 
         $.ajax({
         url: queryURL,
         method: "GET"
         })
-        // We store all of the retrieved data inside of an object called "response"
         .then(function(response) {
     
-            // Log the queryURL
             console.log(queryURL);
-    
-            // Log the resulting object
             console.log(response);
         })})
 
@@ -130,22 +78,16 @@ $("#button").on("click", function() {
 
     var cityName = $("input:text").val();
     document.getElementById("weather-input").innerHTML = cityName; 
-    // Here we are building the URL we need to query the database
     var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&appid=" + APIKey;
-    //   "q=Bujumbura,Burundi&units=imperial&appid=" + APIKey;
     
-
+    
       $.ajax({
         url: queryURL,
         method: "GET"
       })
-        // We store all of the retrieved data inside of an object called "response"
         .then(function(response) {
   
-          // Log the queryURL
           console.log(queryURL);
-  
-          // Log the resulting object
           console.log(response);
         })})
 

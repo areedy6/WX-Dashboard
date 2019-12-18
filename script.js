@@ -31,6 +31,11 @@ $.ajax({
     var tempF = (response.main.temp - 273.15) * 1.80 + 32;
     var pFour = $("<p>").text("Temperature: " + tempF + " (F)");
         
+    var iconCode = response.weather[0].icon;
+    var iconURL = "http://openweathermap.org/img/w/" + iconCode + ".png";
+
+    console.log(iconURL)
+
     wxDiv.append(pOne);
     console.log(city)
     wxDiv.append(pTwo);
@@ -43,6 +48,8 @@ $.ajax({
     
 
   $("#weather").prepend(wxDiv)
+  $("#wicon").attr('src', iconURL)
+  
 
   })
 })
@@ -89,6 +96,38 @@ $("#button").on("click", function() {
   
           console.log(queryURL);
           console.log(response);
+          
+          console.log(response.list[0].dt);
+          console.log(response.list[0].weather[0].icon);
+          console.log(response.list[0].main.temp)
+          console.log(response.list[0].main.humidity)
+
+          console.log(response.list[1].dt);
+          console.log(response.list[1].weather[0].icon);
+          console.log(response.list[1].main.temp)
+          console.log(response.list[1].main.humidity)
+
+          console.log(response.list[2].dt);
+          console.log(response.list[2].weather[0].icon);
+          console.log(response.list[2].main.temp)
+          console.log(response.list[2].main.humidity)
+
+          console.log(response.list[3].dt);
+          console.log(response.list[3].weather[0].icon);
+          console.log(response.list[3].main.temp)
+          console.log(response.list[3].main.humidity)
+
+          console.log(response.list[4].dt);
+          console.log(response.list[4].weather[0].icon);
+          console.log(response.list[4].main.temp)
+          console.log(response.list[4].main.humidity)
+
+
+
+        //   console.log(response.list[1].main)
+        //   console.log(response.list[2].main)
+        //   console.log(response.list[3].main)
+        //   console.log(response.list[4].main)
         })})
 
 

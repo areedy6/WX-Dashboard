@@ -6,6 +6,8 @@ $("#button").on("click", function() {
 var cityName = $("input:text").val();
 document.getElementById("weather-input").innerHTML = cityName; 
 
+// $("input:text").val("");
+
 // var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=cleveland&appid=" + APIKey;
 
 var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=" + APIKey;
@@ -97,37 +99,127 @@ $("#button").on("click", function() {
           console.log(queryURL);
           console.log(response);
           
-          console.log(response.list[0].dt);
-          console.log(response.list[0].weather[0].icon);
-          console.log(response.list[0].main.temp)
-          console.log(response.list[0].main.humidity)
+        //DAY ONE
 
-          console.log(response.list[1].dt);
-          console.log(response.list[1].weather[0].icon);
-          console.log(response.list[1].main.temp)
-          console.log(response.list[1].main.humidity)
-
-          console.log(response.list[2].dt);
-          console.log(response.list[2].weather[0].icon);
-          console.log(response.list[2].main.temp)
-          console.log(response.list[2].main.humidity)
-
-          console.log(response.list[3].dt);
-          console.log(response.list[3].weather[0].icon);
-          console.log(response.list[3].main.temp)
-          console.log(response.list[3].main.humidity)
-
-          console.log(response.list[4].dt);
-          console.log(response.list[4].weather[0].icon);
-          console.log(response.list[4].main.temp)
-          console.log(response.list[4].main.humidity)
+          var fiveDiv = $("<div>");
+          var time0 = response.list[0].dt;
+          var timeDiv0 = $("<p>").text("Date: " + time0);
+          var icon0 = response.list[0].weather[0].icon;
+          var iconDiv0 = $("<p>").text(icon0);
+          var temp0 = response.list[0].main.temp;
+          var tempDiv0 = $("<p>").text("Temperature (F): " + temp0);
+          var humidity0 = response.list[0].main.humidity;
+          var humDiv0 = $("<p>").text("Humidity: " + humidity0);
 
 
+            fiveDiv.append(timeDiv0);
+            console.log(response.list[0].dt);
+            fiveDiv.append(iconDiv0);
+            console.log(response.list[0].weather[0].icon);
+            fiveDiv.append(tempDiv0);
+            console.log(response.list[0].main.temp)
+            fiveDiv.append(humDiv0);
+            console.log(response.list[0].main.humidity)
 
-        //   console.log(response.list[1].main)
-        //   console.log(response.list[2].main)
-        //   console.log(response.list[3].main)
-        //   console.log(response.list[4].main)
-        })})
+
+            $("#5day").prepend(fiveDiv)
+
+        //DAY TWO 
+
+        var fiveDiv = $("<div>");
+        var time0 = response.list[1].dt;
+        var timeDiv0 = $("<p>").text("Date: " + time0);
+        var icon0 = response.list[1].weather[0].icon;
+        var iconDiv0 = $("<p>").text(icon0);
+        var temp0 = response.list[1].main.temp;
+        var tempDiv0 = $("<p>").text("Temperature (F): " + temp0);
+        var humidity0 = response.list[1].main.humidity;
+        var humDiv0 = $("<p>").text("Humidity: " + humidity0);
 
 
+            fiveDiv.append(timeDiv0);
+            console.log(response.list[1].dt);
+            fiveDiv.append(iconDiv0);
+            console.log(response.list[1].weather[0].icon);
+            fiveDiv.append(tempDiv0);
+            console.log(response.list[1].main.temp)
+            fiveDiv.append(humDiv0);
+            console.log(response.list[1].main.humidity)
+
+            $("#5day").prepend(fiveDiv)
+
+        //DAY THREE
+
+        var fiveDiv = $("<div>");
+        var time0 = response.list[2].dt;
+        var timeDiv0 = $("<p>").text("Date: " + time0);
+        var icon0 = response.list[2].weather[0].icon;
+        var iconDiv0 = $("<p>").text(icon0);
+        var temp0 = response.list[2].main.temp;
+        var tempDiv0 = $("<p>").text("Temperature (F): " + temp0);
+        var humidity0 = response.list[2].main.humidity;
+        var humDiv0 = $("<p>").text("Humidity: " + humidity0);
+
+
+            fiveDiv.append(timeDiv0);
+            console.log(response.list[2].dt);
+            fiveDiv.append(iconDiv0);
+            console.log(response.list[2].weather[0].icon);
+            fiveDiv.append(tempDiv0);
+            console.log(response.list[2].main.temp)
+            fiveDiv.append(humDiv0);
+            console.log(response.list[2].main.humidity)
+
+            $("#5day").prepend(fiveDiv)
+
+        //DAY FOUR
+
+        var fiveDiv = $("<div>");
+        var time0 = response.list[3].dt;
+        var timeDiv0 = $("<p>").text("Date: " + time0);
+        var icon0 = response.list[3].weather[0].icon;
+        var iconDiv0 = $("<p>").text(icon0);
+        var temp0 = response.list[3].main.temp;
+        var tempDiv0 = $("<p>").text("Temperature (F): " + temp0);
+        var humidity0 = response.list[3].main.humidity;
+        var humDiv0 = $("<p>").text("Humidity: " + humidity0);
+
+
+            fiveDiv.append(timeDiv0);
+            console.log(response.list[3].dt);
+            fiveDiv.append(iconDiv0);
+            console.log(response.list[3].weather[0].icon);
+            fiveDiv.append(tempDiv0);
+            console.log(response.list[3].main.temp)
+            fiveDiv.append(humDiv0);
+            console.log(response.list[3].main.humidity)
+
+            $("#5day").prepend(fiveDiv)
+
+        // DAY FIVE
+
+        var fiveDiv = $("<div>");
+        var time0 = response.list[4].dt;
+        var timeDiv0 = $("<p>").text("Date: " + time0);
+        var icon0 = response.list[4].weather[0].icon;
+        var iconDiv0 = $("<p>").text(icon0);
+        var temp0 = response.list[4].main.temp;
+        var tempDiv0 = $("<p>").text("Temperature (F): " + temp0);
+        var humidity0 = response.list[4].main.humidity;
+        var humDiv0 = $("<p>").text("Humidity: " + humidity0);
+
+
+            fiveDiv.append(timeDiv0);
+            console.log(response.list[4].dt);
+            fiveDiv.append(iconDiv0);
+            console.log(response.list[4].weather[0].icon);
+            fiveDiv.append(tempDiv0);
+            console.log(response.list[4].main.temp)
+            fiveDiv.append(humDiv0);
+            console.log(response.list[4].main.humidity)
+
+            $("#5day").prepend(fiveDiv)
+        
+        })
+
+    })
